@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reshaping Our Story - I'm Sorry Yazhl 🏺</title>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --terracotta: #e07a5f;
+            --clay: #c9a98b;
+            --green-field: #2d6a4f;
+            --cinema-red: #d62828;
+            --gold-trophy: #f4a261;
+            --dark-brown: #3d2817;
+            --cream: #f8f4e3;
+            --charcoal: #264653;
+        }
+
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background: linear-gradient(135deg, #3d2817 0%, #6c4a3a 50%, #8b6f47 100%);
+            color: var(--cream);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Floating themed icons */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .float-icon {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.15;
+            animation: floatAnimation 20s infinite ease-in-out;
+        }
+
+        @keyframes floatAnimation {
+            0%, 100% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.2;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header - Movie Marquee Style */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: slideDown 1s ease;
+            background: linear-gradient(135deg, rgba(214, 40, 40, 0.95), rgba(224, 122, 95, 0.95));
+            padding: 60px 40px;
+            border-radius: 30px;
+            border: 5px solid var(--gold-trophy);
+            box-shadow: 0 0 50px rgba(244, 162, 97, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--gold-trophy) 0px,
+                var(--gold-trophy) 40px,
+                transparent 40px,
+                transparent 80px
+            );
+            animation: marqueeMove 2s linear infinite;
+        }
+
+        @keyframes marqueeMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 80px 0; }
+        }
+
+        .header h1 {
+            font-family: 'Righteous', cursive;
+            font-size: 4em;
+            color: var(--cream);
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.7);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .header .subtitle {
+            font-size: 1.5em;
+            color: var(--cream);
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .main-icons {
+            font-size: 4em;
+            margin: 25px 0;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            animation: iconBounce 2s infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Pottery Bowl Apology */
+        .pottery-section {
+            background: linear-gradient(135deg, var(--clay), #d4b896);
+            border-radius: 30px;
+            padding: 60px;
+            margin: 40px 0;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            animation: fadeIn 1.2s ease;
+            position: relative;
+            border: 6px solid var(--terracotta);
+            color: var(--dark-brown);
+        }
+
+        .pottery-section::before {
+            content: '🏺';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            font-size: 12em;
+            opacity: 0.1;
+            transform: rotate(20deg);
+        }
+
+        .pottery-section h2 {
+            font-family: 'Righteous', cursive;
+            font-size: 3em;
+            color: var(--terracotta);
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 4px solid var(--dark-brown);
+            padding-bottom: 20px;
+        }
+
+        .pottery-section .intro {
+            font-size: 1.3em;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: var(--cinema-red);
+        }
+
+        .pottery-section p {
+            font-size: 1.2em;
+            line-height: 2;
+            margin-bottom: 25px;
+            text-indent: 40px;
+        }
+
+        .pottery-section .signature {
+            text-align: right;
+            font-family: 'Righteous', cursive;
+            font-size: 2em;
+            color: var(--terracotta);
+            margin-top: 40px;
+            font-style: italic;
+        }
+
+        /* Football Stadium Forgiveness */
+        .stadium-section {
+            text-align: center;
+            margin: 60px 0;
+            background: linear-gradient(135deg, rgba(45, 106, 79, 0.95), rgba(28, 60, 45, 0.95));
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            border: 5px solid var(--gold-trophy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stadium-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(45, 106, 79, 0.3) 0px,
+                rgba(45, 106, 79, 0.3) 50px,
+                rgba(28, 60, 45, 0.3) 50px,
+                rgba(28, 60, 45, 0.3) 100px
+            );
+            z-index: 0;
+        }
+
+        .stadium-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .stadium-section h2 {
+            font-family: 'Righteous', cursive;
+            font-size: 3.5em;
+            color: var(--gold-trophy);
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+
+        .stadium-section .subtitle-text {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            color: var(--cream);
+        }
+
+        .scoreboard {
+            background: rgba(0,0,0,0.7);
+            border: 5px solid var(--gold-trophy);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .scoreboard-title {
+            font-family: 'Righteous', cursive;
+            font-size: 2em;
+            color: var(--gold-trophy);
+            margin-bottom: 20px;
+        }
+
+        .score-display {
+            font-size: 4em;
+            color: var(--cream);
+            font-weight: 700;
+            font-family: 'Righteous', cursive;
+            margin: 20px 0;
+            text-shadow: 0 0 20px rgba(244, 162, 97, 0.8);
+        }
+
+        .forgiveness-meter {
+            width: 100%;
+            height: 60px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 30px;
+            overflow: hidden;
+            border: 3px solid var(--gold-trophy);
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--cinema-red), var(--gold-trophy), var(--green-field));
+            width: 0%;
+            transition: width 1.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 25px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .meter-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: var(--cream);
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 22px 50px;
+            font-size: 1.5em;
+            font-weight: 700;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: 'Righteous', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .btn-goal {
+            background: linear-gradient(135deg, var(--green-field), #1b4332);
+            color: white;
+            box-shadow: 0 15px 40px rgba(45, 106, 79, 0.6);
+            border: 3px solid var(--gold-trophy);
+        }
+
+        .btn-goal:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 50px rgba(45, 106, 79, 0.8);
+        }
+
+        .btn-halftime {
+            background: linear-gradient(135deg, var(--gold-trophy), #e09f3e);
+            color: var(--dark-brown);
+            box-shadow: 0 15px 40px rgba(244, 162, 97, 0.6);
+            border: 3px solid var(--terracotta);
+        }
+
+        .btn-halftime:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-redcard {
+            background: linear-gradient(135deg, var(--cinema-red), #9d0208);
+            color: white;
+            border: 3px solid var(--gold-trophy);
+            position: relative;
+        }
+
+        /* Victory Celebration */
+        .victory-section {
+            display: none;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(45, 106, 79, 0.98), rgba(244, 162, 97, 0.98));
+            padding: 80px;
+            border-radius: 30px;
+            margin: 40px 0;
+            box-shadow: 0 30px 80px rgba(244, 162, 97, 0.8);
+            border: 6px solid var(--gold-trophy);
+        }
+
+        .victory-section.active {
+            display: block;
+            animation: bounceIn 1.5s ease;
+        }
+
+        .victory-section h2 {
+            font-family: 'Righteous', cursive;
+            font-size: 4em;
+            color: var(--cream);
+            margin-bottom: 30px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.7);
+        }
+
+        .victory-section p {
+            font-size: 1.8em;
+            color: white;
+            line-height: 2;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+
+        .trophy-display {
+            font-size: 10em;
+            animation: trophyWin 3s infinite;
+            display: inline-block;
+            margin: 40px 0;
+        }
+
+        @keyframes trophyWin {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-15deg) scale(1.1); }
+            75% { transform: rotate(15deg) scale(1.1); }
+        }
+
+        /* Clay & Crafting Reasons */
+        .pottery-grid-section {
+            margin: 60px 0;
+        }
+
+        .pottery-grid-section h2 {
+            font-family: 'Righteous', cursive;
+            font-size: 3.5em;
+            color: var(--terracotta);
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+
+        .pottery-grid-section .subtitle-text {
+            text-align: center;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            color: var(--clay);
+        }
+
+        .pottery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .clay-card {
+            background: linear-gradient(135deg, rgba(224, 122, 95, 0.9), rgba(201, 169, 139, 0.9));
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            border: 4px solid var(--dark-brown);
+            position: relative;
+            color: var(--dark-brown);
+        }
+
+        .clay-card::after {
+            content: '~';
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 4em;
+            opacity: 0.2;
+            font-family: 'Righteous', cursive;
+        }
+
+        .clay-card:hover {
+            transform: translateY(-20px) rotate(2deg);
+            box-shadow: 0 30px 60px rgba(244, 162, 97, 0.6);
+            border-color: var(--gold-trophy);
+        }
+
+        .clay-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .clay-card h3 {
+            color: var(--dark-brown);
+            margin-bottom: 18px;
+            font-size: 1.6em;
+            font-family: 'Righteous', cursive;
+        }
+
+        .clay-card p {
+            color: var(--charcoal);
+            line-height: 1.9;
+            font-size: 1.1em;
+        }
+
+        /* Movie Reel Promises */
+        .cinema-section {
+            margin: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(214, 40, 40, 0.95), rgba(157, 2, 8, 0.95));
+            padding: 60px;
+            border-radius: 30px;
+            border: 5px solid var(--gold-trophy);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .cinema-section::before {
+            content: '🎬';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 10em;
+            opacity: 0.1;
+        }
+
+        .cinema-section h2 {
+            font-family: 'Righteous', cursive;
+            font-size: 3.5em;
+            color: var(--cream);
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+
+        .cinema-section .subtitle-text {
+            font-size: 1.3em;
+            color: var(--cream);
+            margin-bottom: 50px;
+        }
+
+        .film-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+
+        .film-card {
+            background: rgba(0,0,0,0.7);
+            padding: 45px 35px;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid var(--gold-trophy);
+            backdrop-filter: blur(10px);
+        }
+
+        .film-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--gold-trophy) 0px,
+                var(--gold-trophy) 15px,
+                transparent 15px,
+                transparent 30px
+            );
+        }
+
+        .film-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--gold-trophy) 0px,
+                var(--gold-trophy) 15px,
+                transparent 15px,
+                transparent 30px
+            );
+        }
+
+        .film-card:hover {
+            transform: scale(1.08) rotate(-3deg);
+            box-shadow: 0 25px 60px rgba(244, 162, 97, 0.6);
+            border-color: var(--cream);
+        }
+
+        .film-card h3 {
+            font-family: 'Righteous', cursive;
+            font-size: 1.7em;
+            margin-bottom: 18px;
+            color: var(--gold-trophy);
+        }
+
+        .film-card p {
+            font-size: 1.15em;
+            line-height: 1.8;
+        }
+
+        /* Match Day Plans */
+        .matchday-section {
+            margin: 60px 0;
+            background: linear-gradient(135deg, rgba(38, 70, 83, 0.95), rgba(28, 53, 61, 0.95));
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            border: 5px solid var(--gold-trophy);
+        }
+
+        .matchday-section h2 {
+            font-family: 'Righteous', cursive;
+            font-size: 3.5em;
+            color: var(--gold-trophy);
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+
+        .matchday-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .matchday-card {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 25px;
+            border-left: 8px solid var(--green-field);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .matchday-card:nth-child(even) {
+            border-left-color: var(--cinema-red);
+        }
+
+        .matchday-card:hover {
+            transform: translateX(20px);
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 15px 40px rgba(244, 162, 97, 0.5);
+        }
+
+        .matchday-card h3 {
+            color: var(--gold-trophy);
+            margin-bottom: 18px;
+            font-size: 1.6em;
+            font-family: 'Righteous', cursive;
+        }
+
+        .matchday-card p {
+            color: var(--cream);
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        /* Credits Roll Footer */
+        .footer {
+            text-align: center;
+            margin: 80px 0 40px;
+            padding: 60px;
+            background: linear-gradient(135deg, rgba(224, 122, 95, 0.95), rgba(214, 40, 40, 0.95));
+            border-radius: 30px;
+            border: 5px solid var(--gold-trophy);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .footer p {
+            font-size: 1.4em;
+            color: var(--cream);
+            line-height: 2.2;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .footer .credits {
+            font-family: 'Righteous', cursive;
+            font-size: 2.5em;
+            color: var(--gold-trophy);
+            margin-top: 40px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.2);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.15);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Golden Confetti */
+        .confetti-gold {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            animation: confettiFall 4s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(900deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .main-icons {
+                font-size: 3em;
+                gap: 20px;
+            }
+
+            .pottery-section, .stadium-section, .cinema-section, .matchday-section {
+                padding: 35px 20px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 18px 30px;
+                font-size: 1.2em;
+            }
+
+            .btn-redcard {
+                position: relative !important;
+            }
+
+            .trophy-display {
+                font-size: 6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating themed background -->
+    <div class="floating-bg" id="floatingBg"></div>
+
+    <div class="container">
+        <!-- Header - Movie Marquee -->
+        <div class="header">
+            <h1>I'M SORRY, YAZHL</h1>
+            <div class="main-icons stadium-content">
+                <span>🏺</span>
+                <span>⚽</span>
+                <span>🎬</span>
+            </div>
+            <p class="subtitle">"Reshaping Our Love Story - One Apology at a Time"</p>
+        </div>
+
+        <!-- Pottery Section - Main Apology -->
+        <div class="pottery-section">
+            <h2>🏺 Molding My Apology From the Heart</h2>
+            <p class="intro">(Just like pottery, relationships need careful shaping and patience)</p>
+            
+            <p>Hey Yazhl, so... I messed up. Like really, REALLY messed up. And just like a pottery wheel, when things go wrong, you have to start reshaping and fixing before everything falls apart.</p>
+            
+            <p>You know how in pottery, one wrong move can ruin the whole piece? That's what I did with my behavior. I got careless, didn't think things through, and ended up cracking what we've been building together. And for that, I'm genuinely sorry.</p>
+            
+            <p>Here's the thing - you're like that perfect movie scene that gives you goosebumps every single time. The kind where the hero realizes what really matters. Well, I'm having that moment right now, and you're what matters. You've always been the MVP of my life, the plot twist that made everything better.</p>
+            
+            <p>I know I acted like a total idiot. If this were a football match, I'd definitely be getting a red card for my behavior. But unlike a game that's lost, I believe we can still win this together. Relationships aren't about never making mistakes - they're about learning, growing, and crafting something beautiful together, just like shaping clay into art.</p>
+            
+            <p>I'm not perfect (clearly!), but I'm willing to put in the work. To reshape myself, to be better, to be the person you deserve. Think of this as the director's cut of "Us" - improved, refined, and way better than the first version!</p>
+            
+            <p>So what do you say? Can we get back on the field together? Can we keep molding our story? Because honestly, life without you is like watching a movie with no sound, playing football with no goal, or pottery with no clay - completely pointless.</p>
+            
+            <p>I promise to do better. To listen more. To think before I act. To be the teammate, the co-star, and the partner you actually want and deserve.</p>
+            
+            <p class="signature">Forever yours (if you'll still have me),<br>Vikram 🏺⚽🎬</p>
+        </div>
+
+        <!-- Stadium Forgiveness Section -->
+        <div class="stadium-section">
+            <div class="stadium-content">
+                <h2>⚽ THE FORGIVENESS STADIUM</h2>
+                <p class="subtitle-text">Where are we in this match? Let's check the score!</p>
+                
+                <div class="scoreboard">
+                    <div class="scoreboard-title">📊 FORGIVENESS METER</div>
+                    <div class="score-display" id="scoreDisplay">0%</div>
+                    
+                    <div class="forgiveness-meter">
+                        <div class="meter-fill" id="meterFill">0%</div>
+                    </div>
+                    <div class="meter-labels">
+                        <span>Red Card 🟥</span>
+                        <span>Yellow Card 🟨</span>
+                        <span>Free Kick ⚽</span>
+                        <span>GOAL! 🏆</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-goal" onclick="handleForgiveness('goal')">I Forgive You! 🏆</button>
+                    <button class="btn btn-halftime" onclick="handleForgiveness('halftime')">Still Thinking 🤔</button>
+                    <button class="btn btn-redcard" id="redCardBtn" onmouseover="dodgeRedCard()" onclick="shrinkRedCard()">Red Card! 🟥</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Victory Celebration -->
+        <div class="victory-section" id="victorySection">
+            <div class="trophy-display">🏆</div>
+            <h2>GOAL! SHE FORGAVE ME!</h2>
+            <p>You just made me the happiest person alive!</p>
+            <p>Thank you for giving me another chance. I won't let you down! 💚</p>
+            <p style="margin-top: 30px; font-size: 1.5em;">Now let's create our best sequel yet! 🎬⚽🏺</p>
+        </div>
+
+        <!-- Pottery Reasons Section -->
+        <div class="pottery-grid-section">
+            <h2>🏺 6 Clay-Solid Reasons to Forgive Me</h2>
+            <p class="subtitle-text">(Each one carefully crafted, just for you)</p>
+            
+            <div class="pottery-grid">
+                <div class="clay-card">
+                    <span class="clay-icon">🍕</span>
+                    <h3>Unlimited Food MVP</h3>
+                    <p>I'll be your personal food delivery service! Biryani at midnight? Done. That specific chai you love? Consider it delivered. Your favorite snacks during movie marathons? I'm on it, coach!</p>
+                </div>
+
+                <div class="clay-card">
+                    <span class="clay-icon">🎮</span>
+                    <h3>Your Personal Comedian</h3>
+                    <p>Who else will make you laugh with terrible jokes and embarrassing moments? I'm basically your free entertainment subscription - comedy, drama, and occasional disasters included!</p>
+                </div>
+
+                <div class="clay-card">
+                    <span class="clay-icon">🎬</span>
+                    <h3>Movie Marathon Partner</h3>
+                    <p>I promise unlimited movie nights - your choice always! Rom-coms, thrillers, or those movies I pretend not to cry at. Plus, I won't complain (much) even if we watch them twice!</p>
+                </div>
+
+                <div class="clay-card">
+                    <span class="clay-icon">⚽</span>
+                    <h3>Loyal Teammate</h3>
+                    <p>In this game of life, I want to be on your team forever. Through victories and defeats, I'll always have your back. You're not just my partner, you're my favorite player!</p>
+                </div>
+
+                <div class="clay-card">
+                    <span class="clay-icon">🎨</span>
+                    <h3>Work in Progress</h3>
+                    <p>Like pottery, I'm constantly being shaped and improved. And you make me want to be a better version of myself. You're literally the artist who's making me into something beautiful!</p>
+                </div>
+
+                <div class="clay-card">
+                    <span class="clay-icon">💝</span>
+                    <h3>Genuinely Love You</h3>
+                    <p>This isn't just words or a fancy website. You mean the world to me. You're the final scene that makes the whole movie worth watching. The winning goal. The masterpiece.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie Reel Promises -->
+        <div class="cinema-section">
+            <h2>🎬 MY DIRECTOR'S CUT PROMISES</h2>
+            <p class="subtitle-text">(The sequel will be better - I promise!)</p>
+            
+            <div class="film-strip">
+                <div class="film-card">
+                    <h3>🎙️ Scene 1: Better Communication</h3>
+                    <p>I'll actually TALK to you properly. No more silent treatment, no more avoiding tough conversations. Open, honest dialogue - like a good movie script!</p>
+                </div>
+
+                <div class="film-card">
+                    <h3>⏰ Scene 2: Quality Time</h3>
+                    <p>Phone down, eyes on you. Whether we're watching movies, making pottery, or discussing football - you'll have my full attention. You deserve to be the main character!</p>
+                </div>
+
+                <div class="film-card">
+                    <h3>👂 Scene 3: Actually Listen</h3>
+                    <p>I'll listen when you talk. Not just hear, but LISTEN. Your feelings, your stories, your random thoughts at 2 AM - all of it matters to me!</p>
+                </div>
+
+                <div class="film-card">
+                    <h3>😊 Scene 4: Daily Smiles</h3>
+                    <p>I'll make sure you smile every single day. Even if it's with my terrible jokes or embarrassing dance moves. Your happiness is my goal!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Match Day Plans -->
+        <div class="matchday-section">
+            <h2>⚽ OUR COMEBACK MATCH PLAN</h2>
+            
+            <div class="matchday-grid">
+                <div class="matchday-card">
+                    <h3>🎬 Movie Marathon Night</h3>
+                    <p>Your pick, always! We'll binge-watch anything you want - snacks unlimited, blankets cozy, and absolutely zero phone distractions. Just us and good cinema!</p>
+                </div>
+
+                <div class="matchday-card">
+                    <h3>🏺 Try Pottery Together</h3>
+                    <p>Let's actually try making pottery! We'll probably mess up and laugh a lot, but that's the point. Creating something together, even if it's hilariously bad!</p>
+                </div>
+
+                <div class="matchday-card">
+                    <h3>⚽ Football Match Date</h3>
+                    <p>Whether it's watching a match or playing it, let's enjoy some football together! I'll explain all the rules (again) and we can cheer for our favorite teams!</p>
+                </div>
+
+                <div class="matchday-card">
+                    <h3>🍜 Food Adventure</h3>
+                    <p>Let's explore new restaurants or revisit our favorites. From street food to fancy dinners - wherever your heart (and stomach) desires!</p>
+                </div>
+
+                <div class="matchday-card">
+                    <h3>🌃 Late Night Drives</h3>
+                    <p>Music on, windows down, no destination. Just us, good vibes, and deep conversations. The best therapy and the cheapest adventure!</p>
+                </div>
+
+                <div class="matchday-card">
+                    <h3>📸 Memory Making</h3>
+                    <p>Let's create new memories - visit new places, try new things, take silly photos, and remind ourselves why we're amazing together!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Credits -->
+        <div class="footer">
+            <p style="font-size: 1.8em; margin-bottom: 25px;">🏺 Relationships are like pottery...</p>
+            <p>They need patience, care, and sometimes you have to start over to get it right.</p>
+            <p style="margin-top: 30px;">⚽ But they're also like football...</p>
+            <p>You play as a team, you support each other, and you celebrate victories together!</p>
+            <p style="margin-top: 30px;">🎬 And just like movies...</p>
+            <p>The best stories have conflicts, resolutions, and happy endings!</p>
+            <p class="credits">Directed by: Vikram<br>Starring: Yazhl (The Leading Lady)<br>Genre: Romance, Comedy, Second Chances</p>
+            <p style="margin-top: 40px; font-size: 1.4em;">🏺⚽🎬 Our story continues... if you'll let it? 💕</p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating themed icons
+        function createFloatingIcons() {
+            const container = document.getElementById('floatingBg');
+            const icons = ['🏺', '⚽', '🎬', '🎨', '🏆', '🎪', '🎯', '🎭'];
+            
+            for (let i = 0; i < 20; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'float-icon';
+                icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+                icon.style.left = Math.random() * 100 + '%';
+                icon.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                icon.style.animationDelay = Math.random() * 10 + 's';
+                container.appendChild(icon);
+            }
+        }
+
+        createFloatingIcons();
+
+        // Forgiveness meter mechanics
+        let forgivenessLevel = 0;
+        let buttonClicks = 0;
+
+        function handleForgiveness(action) {
+            const meterFill = document.getElementById('meterFill');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const victorySection = document.getElementById('victorySection');
+            const stadiumSection = document.querySelector('.stadium-section');
+
+            if (action === 'goal') {
+                forgivenessLevel = 100;
+                meterFill.style.width = '100%';
+                meterFill.textContent = '100%';
+                scoreDisplay.textContent = '100%';
+                
+                setTimeout(() => {
+                    stadiumSection.style.display = 'none';
+                    victorySection.classList.add('active');
+                    createGoldenConfetti();
+                    changeToHappyIcons();
+                }, 600);
+            } else if (action === 'halftime') {
+                forgivenessLevel = Math.min(forgivenessLevel + 25, 75);
+                meterFill.style.width = forgivenessLevel + '%';
+                meterFill.textContent = forgivenessLevel + '%';
+                scoreDisplay.textContent = forgivenessLevel + '%';
+            }
+        }
+
+        // Red card button dodge mechanics
+        let dodgeAttempts = 0;
+        let redCardBtn = document.getElementById('redCardBtn');
+
+        function dodgeRedCard() {
+            if (dodgeAttempts >= 6) {
+                redCardBtn.style.display = 'none';
+                return;
+            }
+
+            const container = document.querySelector('.action-buttons');
+            const containerRect = container.getBoundingClientRect();
+            
+            const maxX = containerRect.width - redCardBtn.offsetWidth - 40;
+            const maxY = 120;
+            
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            redCardBtn.style.position = 'absolute';
+            redCardBtn.style.left = randomX + 'px';
+            redCardBtn.style.top = randomY + 'px';
+        }
+
+        function shrinkRedCard() {
+            dodgeAttempts++;
+            let scale = 1 - (dodgeAttempts * 0.15);
+            redCardBtn.style.transform = `scale(${Math.max(scale, 0.2)})`;
+            
+            if (dodgeAttempts >= 6) {
+                redCardBtn.style.display = 'none';
+            }
+        }
+
+        // Golden confetti celebration
+        function createGoldenConfetti() {
+            const colors = ['#f4a261', '#e07a5f', '#d3a625', '#2d6a4f', '#d62828'];
+            
+            for (let i = 0; i < 120; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti-gold';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-20px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = '0s';
+                    confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 25);
+            }
+        }
+
+        // Change to happy icons
+        function changeToHappyIcons() {
+            const container = document.getElementById('floatingBg');
+            container.innerHTML = '';
+            
+            const happyIcons = ['🏆', '💚', '✨', '🎉', '💕', '😊', '🌟', '⚽', '🎬', '🏺'];
+            
+            for (let i = 0; i < 25; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'float-icon';
+                icon.textContent = happyIcons[Math.floor(Math.random() * happyIcons.length)];
+                icon.style.left = Math.random() * 100 + '%';
+                icon.style.animationDuration = (Math.random() * 8 + 12) + 's';
+                icon.style.animationDelay = Math.random() * 3 + 's';
+                icon.style.opacity = '0.3';
+                container.appendChild(icon);
+            }
+        }
+
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.clay-card, .film-card, .matchday-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
